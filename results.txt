@@ -1,0 +1,86 @@
+--- REST API Test Results ---
+
+1. GET ALL (Initial):
+Status: 200, Body: []
+------------------------------
+2. POST 3 Students:
+Created: 201, Body: {'age': '20', 'first_name': 'Ivan', 'id': '1', 'last_name': 'Petrenko'}
+Created: 201, Body: {'age': '22', 'first_name': 'Maria', 'id': '2', 'last_name': 'Kovalenko'}
+Created: 201, Body: {'age': '21', 'first_name': 'Oleg', 'id': '3', 'last_name': 'Bondar'}
+------------------------------
+3. GET ALL (After POST):
+Status: 200, Body: [
+  {
+    "age": "20",
+    "first_name": "Ivan",
+    "id": "1",
+    "last_name": "Petrenko"
+  },
+  {
+    "age": "22",
+    "first_name": "Maria",
+    "id": "2",
+    "last_name": "Kovalenko"
+  },
+  {
+    "age": "21",
+    "first_name": "Oleg",
+    "id": "3",
+    "last_name": "Bondar"
+  }
+]
+------------------------------
+4. PATCH Student ID 2 (Update age to 25):
+Status: 200, Body: {'age': '25', 'first_name': 'Maria', 'id': '2', 'last_name': 'Kovalenko'}
+------------------------------
+5. GET Student ID 2:
+Status: 200, Body: {'age': '25', 'first_name': 'Maria', 'id': '2', 'last_name': 'Kovalenko'}
+------------------------------
+6. PUT Student ID 3 (Update all fields):
+Status: 200, Body: {'age': '30', 'first_name': 'Oleg_Updated', 'id': '3', 'last_name': 'Bondar_New'}
+------------------------------
+7. GET Student ID 3:
+Status: 200, Body: {'age': '30', 'first_name': 'Oleg_Updated', 'id': '3', 'last_name': 'Bondar_New'}
+------------------------------
+8. GET ALL (Before Delete):
+Status: 200, Body: [
+  {
+    "age": "20",
+    "first_name": "Ivan",
+    "id": "1",
+    "last_name": "Petrenko"
+  },
+  {
+    "age": "25",
+    "first_name": "Maria",
+    "id": "2",
+    "last_name": "Kovalenko"
+  },
+  {
+    "age": "30",
+    "first_name": "Oleg_Updated",
+    "id": "3",
+    "last_name": "Bondar_New"
+  }
+]
+------------------------------
+9. DELETE Student ID 1:
+Status: 200, Body: {'message': 'Student ID 1 deleted successfully'}
+------------------------------
+10. GET ALL (Final):
+Status: 200, Body: [
+  {
+    "age": "25",
+    "first_name": "Maria",
+    "id": "2",
+    "last_name": "Kovalenko"
+  },
+  {
+    "age": "30",
+    "first_name": "Oleg_Updated",
+    "id": "3",
+    "last_name": "Bondar_New"
+  }
+]
+------------------------------
+TEST COMPLETED. Results saved to results.txt
